@@ -27,7 +27,7 @@ void initGlider(int x, int y){
   cellmap[x+1][y+2] = 1;
 }
 
-void initLWSS(int x, int y){
+void initLWSS(int x, int y){    //Creates a Light Weigth Space Ship
   cellmap[x][y+1] = 1;
   cellmap[x][y+2] = 1;
   cellmap[x][y+3] = 1;
