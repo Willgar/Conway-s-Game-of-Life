@@ -43,8 +43,8 @@ void initLWSS(int x, int y){    //Creates a Light Weigth Space Ship
 void mapinit(){     //Initialize the gridmap to 0
   for(int i = 0; i<ROW; i++) {
     for(int j = 0; j<COLUMN; j++) {
-      //cellmap[i][j] = 0;
-      //newmap[i][j] = 0;
+      cellmap[i][j] = 0;
+      newmap[i][j] = 0;
     }
   }
   initGlider(4,3);
