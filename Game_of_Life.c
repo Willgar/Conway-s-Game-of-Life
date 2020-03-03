@@ -48,6 +48,7 @@ void mapinit(){     //Initialize the gridmap to 0
   }
   initGlider(4,3);
   initLWSS(10, 10);
+  initLWSS(5, 20);
   printCellmap();
 }
 
