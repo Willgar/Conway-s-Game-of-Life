@@ -6,18 +6,7 @@ int COLUMN = 30;
 int ROW = 30;
 int cellmap[30][30];
 int newmap[30][30];
-double indexgen = 0;
-
-void printCellmap(){      //A function that clears the console and then loops through the array and prints it
-  system("clear");
-  for(int i = 0; i<ROW; i++) {
-    for(int j = 0; j<COLUMN; j++) {
-        printf("%d ", cellmap[i][j]);
-    }
-    printf("\n");
-  }
-  printf("Generation: %lf \n", indexgen++);
-}
+int indexgen = 0;
 
 void initGlider(int x, int y){
   cellmap[x][y+1] = 1;    //Creates a "glider" in the map
@@ -37,6 +26,21 @@ void initLWSS(int x, int y){    //Creates a Light Weigth Space Ship
   cellmap[x+3][y+3] = 1;
   cellmap[x+4][y] = 1;
   cellmap[x+4][y+2] = 1;
+}
+
+void printCellmap(){      //A function that clears the console and then loops through the array and prints it
+  system("clear");
+  for(int i = 0; i<ROW; i++) {
+    for(int j = 0; j<COLUMN; j++) {
+        printf("%d ", cellmap[i][j]);
+    }
+    printf("\n");
+  }
+  printf("Generation: %d \n", indexgen++);
+  if(indexgen % 100 == 0){
+    initLWSS((indexgen % 12), (indexgen % 25));
+  }
+  //sleep(1); //1 second delay
 }
 
 void mapinit(){     //Initialize the gridmap to 0
@@ -77,7 +81,6 @@ void copyArray(){               //Sets cellmap to newmap
 int main(void){
   mapinit();
     while(1){   //Loops continously
-      sleep(1); //1 second delay
       for(int i = 0; i<ROW; i++) {
         for(int j = 0; j<COLUMN; j++) {
             int nSum = nearCells(i, j);   //Checks the amount of neighbours
